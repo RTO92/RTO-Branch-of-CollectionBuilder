@@ -150,14 +150,15 @@
         layer.bindPopup(popupTemplate);
     }
     /* function to add objects to map */
-    } function getColor(feature){
-        switch (feature.properties["headline"]) {
-                case 'entertainment':
-                return 'pink';
-                case 'intelligencia':
-                return 'blue':
-                default:
-                return 'black';
+    
+function getColor(feature){
+  switch (feature.properties["type"]) {
+            case 'Building':
+            return  'orange';
+            case 'Open space':
+            return 'green';
+            default:
+            return 'red';
         }
     }
 
