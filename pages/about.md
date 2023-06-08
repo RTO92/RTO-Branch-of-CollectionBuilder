@@ -13,11 +13,12 @@ credits: true
 {% include feature/nav-menu.html sections="About the Collection;About the About Page" %}
 
 ## About the Collection
+This is a collection about this beautiful University 
 
 This site is generated using [CollectionBuilder-GH](https://collectionbuilding.github.io/gh/), a project to create a free and simple digital collection using [GitHub Pages](https://pages.github.com/) from: 
 
-- a CSV of collection metadata
-- a folder of JPG images or PDF documents
+- The secret lair that I have hidden in my OneDrive
+- This is a space that I am playing around with.
 
 The template repository features four objects from the University of Idaho Library's [Digital Collections](https://www.lib.uidaho.edu/digital). 
 

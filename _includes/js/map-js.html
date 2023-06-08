@@ -47,16 +47,25 @@
     var Esri_WorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
         attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
     });
+<<<<<<< Updated upstream
     var OpenStreetMap_Mapnik = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+=======
+    var Stamen_WaterColor = L.tileLayer("https://stamen-tiles.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.jpg", {
+    attribution: 'Map tiles by Stamen Design, under CC BY 3.0 Data by OpenStreetMap, under CC BY SA.'
+>>>>>>> Stashed changes
     });
     /* add base map switcher */
     var baseMaps = {
         "Esri World StreetMap": Esri_WorldStreetMap,
         "Esri National Geo": Esri_NatGeoWorldMap,
         "Esri Imagery": Esri_WorldImagery,
+<<<<<<< Updated upstream
         "Open Street Map": OpenStreetMap_Mapnik
+=======
+        "Stamen WaterColor": Stamen_WaterColor
+>>>>>>> Stashed changes
     };
     L.control.layers(baseMaps).addTo(map);
     /* load base map */
@@ -147,8 +156,24 @@
         layer.bindPopup(popupTemplate);
     }
     /* function to add objects to map */
+    } function getColor(feature){
+        switch (feature.properties["headline"]) {
+                case 'entertainment':
+                return 'pink';
+                case 'intelligencia':
+                return 'blue':
+                default:
+                return 'black';
+        }
+    }
+
     function objectMarkers(feature,latlng) {
-        var marker = L.marker(latlng, {alt: feature.properties.title});
+        var marker = new L.CircleMarker(latlng,{
+            radius: 6,
+            color:getColor(feature),
+            alt: feature.properties.title,
+        })
+        //var marker = L.marker(latlng, {alt: feature.properties.title});
         {% if site.data.theme.map-cluster == true %}markers.addLayer(marker);{% endif %}
         return marker;
     }
